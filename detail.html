@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .container img {
+            max-width: 200px;
+            height: auto;
+            opacity: 0.7; /* Adjust transparency */
+        }
+
+        .container p {
+            margin: 0;
+            color: #333;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .box1 {
+            background-color: #fff;
+        }
+
+        .box2 {
+            background-color: #f9f9f9;
+        }
+
+        .box3 {
+            background-color: #f0f0f0;
+            margin-right: 50px;
+        }
+        .container.box1 {
+    background-color: #f2f2f2;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+}
+.container select {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333; /* Text color */
+    background-color: #f2f2f2; /* Background color */
+    border: 2px solid #ccc; /* Border */
+    border-radius: 8px; /* Border radius */
+    padding: 8px 12px; /* Padding */
+}
+
+.container select:hover {
+    background-color: #e0e0e0; /* Background color on hover */
+}
+
+.container select:focus {
+    outline: none; /* Remove focus outline */
+    border-color: #007bff; /* Border color on focus */
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container box1">
+        <label for="redirectDropdown">Select a Page:</label>
+        <select id="redirectDropdown" onchange="redirect()">
+            <option value="">Select...</option>
+            <option value="detail.html">About</option>
+            <option value="detail.html">Page 2</option>
+            <option value="detail.html">Page 3</option>
+        </select>
+    </div>
+
+    <div class="container box2">
+        <div id="heartDetails">
+            <img src="h1.jpg" alt="Heart Image">
+            <p>This page provides information about the heart and how to prevent heart diseases.</p>
+        </div>
+    </div>
+
+    <!-- Box for Page 1 -->
+    <div class="container box3">
+        <div>
+            <h2>Page 1: Heart Diseases</h2>
+            <p>This page provides detailed information about different types of heart diseases and their symptoms.</p>
+        </div>
+        <img src="h1.jpg" alt="Heart Disease" style="max-width: 200px; height: auto;">
+    </div>
+
+    <!-- Box for Page 2 -->
+    <div class="container box2">
+        <img src="h1.jpg" alt="Heart Healthy Lifestyle" style="max-width: 200px; height: auto;">
+        <div>
+            <h2>Page 2: Heart Healthy Lifestyle</h2>
+            <p>This page discusses tips and strategies for maintaining a heart-healthy lifestyle.</p>
+        </div>
+    </div>
+
+    <!-- Box for Page 3 -->
+    <div class="container box3">
+        <div>
+            <h2>Page 3: Heart Disease Prevention</h2>
+            <p>This page focuses on preventive Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus odio eos officia rerum hic ipsum adipisci, commodi natus, laudantium earum dicta! Eveniet ab libero repudiandae saepe Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas consectetur ex laudantium. Dolorem modi ipsam architecto distinctio tempore? Sit laborum beatae cupiditate mollitia architecto maiores totam molestias eveniet, incidunt ad. Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, assumenda sed. Provident quia sint facilis recusandae saepe illum quis, ea culpa, fuga rem animi suscipit vel consectetur nesciunt maxime iste. assumenda id reiciendis eius? measures to reduce the risk of heart disease.</p>
+        </div>
+        <img src="h1.jpg" alt="Heart Disease Prevention" style="max-width: 200px; height: auto;">
+    </div>
+
+    <script>
+        function redirect() {
+            var dropdown = document.getElementById("redirectDropdown");
+            var selectedOption = dropdown.options[dropdown.selectedIndex].value;
+            if (selectedOption) {
+                window.location.href = selectedOption;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Call</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        #callContainer {
+            border: 2px solid #009688;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #009688;
+            margin-bottom: 20px;
+        }
+
+        #localVideo, #remoteVideo {
+            width: 320px;
+            height: 240px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px 20px;
+            margin-top: 10px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #009688;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #00796b;
+        }
+    </style>
+</head>
+<body>
+    <div id="callContainer">
+        <h1>Doctor Appointment Video Call</h1>
+        <div>
+            <video id="localVideo" autoplay muted></video>
+            <video id="remoteVideo" autoplay></video>
+        </div>
+        <button id="startCall">Start Call</button>
+        <button id="endCall">End Call</button>
+    </div>
+
+    <script>
+        let localStream;
+        let remoteStream;
+        let pc1;
+        let pc2;
+
+        const startButton = document.getElementById('startCall');
+        const endButton = document.getElementById('endCall');
+
+        startButton.addEventListener('click', startCall);
+        endButton.addEventListener('click', endCall);
+
+        async function startCall() {
+            try {
+                localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+                document.getElementById('localVideo').srcObject = localStream;
+
+                const configuration = {};
+                pc1 = new RTCPeerConnection(configuration);
+                pc2 = new RTCPeerConnection(configuration);
+
+                pc1.onicecandidate = e => pc2.addIceCandidate(e.candidate);
+                pc2.onicecandidate = e => pc1.addIceCandidate(e.candidate);
+
+                pc2.ontrack = e => {
+                    remoteStream = e.streams[0];
+                    document.getElementById('remoteVideo').srcObject = remoteStream;
+                };
+
+                localStream.getTracks().forEach(track => pc1.addTrack(track, localStream));
+
+                const offer = await pc1.createOffer();
+                await pc1.setLocalDescription(offer);
+                await pc2.setRemoteDescription(offer);
+
+                const answer = await pc2.createAnswer();
+                await pc2.setLocalDescription(answer);
+                await pc1.setRemoteDescription(answer);
+            } catch (error) {
+                console.error('Error starting call:', error);
+            }
+        }
+
+        function endCall() {
+            pc1.close();
+            pc2.close();
+            localStream.getTracks().forEach(track => track.stop());
+            remoteStream.getTracks().forEach(track => track.stop());
+            document.getElementById('localVideo').srcObject = null;
+            document.getElementById('remoteVideo').srcObject = null;
+        }
+    </script>
+</body>
+</html>

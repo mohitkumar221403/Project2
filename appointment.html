@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      href="https://th.bing.com/th/id/OIP.kwE8IapDUTtylieeRnn2YAHaHa?pid=ImgDet&rs=1"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <title>Registration form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+
+    <style>
+
+       /* / *header*/ */
+
+       #header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background: #949597;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#navbar li {
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+}
+
+#navbar li a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    transition: 0.3s ease;
+}
+
+#navbar li a:hover,
+#navbar li a.active {
+    color: #088178;
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after {
+    content: "";
+    width: 30%;
+    height: 2px;
+    background: #088178;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+}
+
+#mobile {
+    display: none;
+    align-items: center;
+
+}
+
+#close {
+    display: none;
+}
+
+
+
+
+     /* Style for the form */
+              .appointment-form {
+                  max-width: 400px;
+                  margin: 0 auto;
+                  padding: 20px;
+                  border-radius: 10px;
+                  background-color: #f5f5f5;
+                  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+              }
+          
+              /* Style for the headings */
+              h3 {
+                  margin-top: 10px;
+                  margin-bottom: 5px;
+              }
+          
+              /* Style for the input fields */
+              input[type="text"],
+              input[type="email"],
+              input[type="date"],
+              input[type="time"],
+              button {
+                  width: 100%;
+                  padding: 10px;
+                  margin-bottom: 10px;
+                  border: 1px solid #ccc;
+                  border-radius: 5px;
+                  box-sizing: border-box;
+              }
+          
+              /* Style for the submit button */
+              button {
+                  background-color: #007bff;
+                  color: white;
+                  font-size: 16px;
+                  font-weight: bold;
+                  cursor: pointer;
+              }
+          
+              button:hover {
+                  background-color: #0056b3;
+              }
+          
+
+              .code-box {
+        width: 100%;
+        height: 300px; /* Adjust height as needed */
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif; /* Choose appropriate font */
+        font-size: 14px;
+        resize: vertical; /* Allow vertical resizing */
+    }
+
+
+
+/*
+ foooter
+
+ 
+*/
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 4rem;
+    margin-top: 100px;
+    background-color: #f1f7f7;
+}
+
+footer .col {
+    display: flex;
+    flex-direction: column;
+margin-left: 30px;
+margin-right: 30px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+footer .logo {
+    margin-bottom: 30px;
+}
+
+footer h4 {
+    font-size: 13px;
+    padding-bottom: 20px;
+}
+
+footer p {
+    font-size: 13px;
+    margin: 0 0 8px 0;
+}
+
+footer a {
+    font-size: 13px;
+    text-decoration: none;
+    color: black;
+    margin-bottom: 10px;
+}
+
+footer .follow {
+    margin-top: 20px;
+}
+
+footer .follow i {
+    color: black;
+    padding-right: 4px;
+    cursor: pointer;
+}
+
+footer .install .row img {
+    border: 1px solid #088178;
+    border-radius: 6px;
+}
+
+footer .install img {
+    margin: 10px 0 15px 0;
+}
+
+footer .follow i:hover,
+footer a:hover {
+    color: #088178;
+}
+
+footer .copyright {
+    width: 100%;
+    text-align: center;
+}
+ h4{
+  margin-top: 30px;
+ }
+ 
+
+ .appointment-form{
+  margin-top: 60px;
+  background-image: url("h1.jpg");
+ }
+
+ body{
+  background-image: url("h1.jpg");
+ }
+
+
+ /* Video Call Section */
+
+#callContainer {
+  border: 2px solid #009688;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Make the video call container full width */
+  margin-top: 20px; /* Add some spacing after other sections */
+}
+
+h1.callTitle { /* New class for video call title */
+  text-align: center;
+  color: #009688;
+  margin-bottom: 20px;
+}
+
+#localVideo, #remoteVideo {
+  width: 48%; /* Adjust video width for side-by-side display */
+  height: 240px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+/* videocall */
+/* body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        } */
+
+        #callContainer {
+            border: 2px solid #009688;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #009688;
+            margin-bottom: 20px;
+        }
+
+        #localVideo, #remoteVideo {
+            width: 320px;
+            height: 240px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px 20px;
+            margin-top: 10px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #009688;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #00796b;
+        }
+
+
+    </style>
+
+<section id="header">
+  <!-- <a href="#">
+      <img src="logo.png" class="logo">
+  </a>
+  <div>
+      <ul id="navbar">
+          <li><a  href="success.html">home</a></li>
+          <li><a href="shop.html">healthCheck</a></li>
+          <li><a class="active" href="appointment.html">appointment</a></li>
+          <li><a href="feature.html">feature</a></li>
+          <li><a href="profile.html">profile</a></li>
+          <li><a  href="blog.html">blog</a></li>
+         
+          <li><a href="feedback.html">feedback</a></li>
+
+          <li id="lg-bag"><a href="card.html"> <i class="fa-solid fa-cart-shopping"></i></a></li>
+          <a href="#" id="close"><i class="fa-sharp fa-solid fa-xmark"></i></a>
+      </ul>
+  </div>
+  <div id="mobile">
+
+      <a href="card.html"> <i class="fa-solid fa-cart-shopping"></i></a>
+      <i id="bar" class="fas fa-outdent"></i>
+  </div> -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="success.html">Home</a>
+            
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="feature.html">Feature-Doctors</a>
+            
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="appointment.html">Appointment</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="medicine.html">medicine</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="feedback.html">medicine</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             presonal
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="profile.html">PROFILE</a></li>
+              <li><a class="dropdown-item" href="blog.html">BLOG-NEWS</a></li>
+              <li><a class="dropdown-item" href="shop.html"></a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+</section>
+      <div
+        
+       
+      ></div>
+      <div  ></div>
+      <div  id="card">
+        <div class="card-body px-md-5 align-left">
+         
+
+
+       
+          </head>
+          <body>
+            
+          
+          <div class="appointment-form">
+              <form method="post" action="/appointment">
+                  <h3>Name</h3>
+                  <input placeholder="Name" type="text" name="name">
+          
+                  <h3>Email</h3>
+                  <input placeholder="Email" type="email" name="email">
+          
+                  <h3>Date</h3>
+                  <input type="date" id="appointment_date" name="date">
+          
+                  <h3>Time</h3>
+                  <input type="time" id="appointment_time" name="time">
+
+                  <h3>Area</h3>
+                  <input placeholder="Area" type="text" name="area">
+          
+                  <button type="submit">Submit</button>
+              </form>
+          </div>
+          
+          </body>
+          </html>
+          
+
+
+        </div>
+      </div>
+
+      
+
+    </section>
+
+    <!-- videocall -->
+<div id="callContainer">
+    <h1>Doctor Appointment Video Call</h1>
+    <div>
+        <video id="localVideo" autoplay muted></video>
+        <video id="remoteVideo" autoplay></video>
+    </div>
+    <button id="startCall">Start Call</button>
+    <button id="endCall">End Call</button>
+</div>
+    
+    <footer class="section-p1">
+      <div class="col">
+          <img class="logo" src="logo.png" alt="">
+          <br>
+          <h4>contact</h4>
+          <br>
+          <p> <strong>Address:</strong> 562 Wellington Road , street 32 , san fransisco</p>
+          <p> <strong>phone:</strong> +91 7667016560</p>
+          <p> <strong>Hours:</strong>10:00 - 18:00 , mon - sat</p>
+          <br>
+          <div class="follow">
+              <h4>Follow-Us</h4>
+              <br>
+              <div class="icon">
+                  <i class="fab fa-facebook"></i>
+                  <i class="fab fa-twitter"></i>
+                  <i class="fab fa-instagram"></i>
+                  <i class="fab fa-youtube"></i>
+              </div>
+          </div>
+      </div>
+      <div class="col">
+          <h4>About</h4>
+          <br>
+          <a href="#">About us</a>
+          <a href="#">Delivery Information</a>
+          <a href="#">Privarcy Policy</a>
+          <a href="#">Term & condition</a>
+          <a href="#">Contact us</a>
+      </div>
+      <div class="col">
+          <h4>My Account</h4>
+          <br>
+          <a href="#">Sign In</a>
+          <a href="#">View Cart</a>
+          <a href="#">My Wishlist</a>
+          <a href="#">Track My Order</a>
+          <a href="#">Help</a>
+      </div>
+      <div class="col install">
+          <br>
+          <h4>Install App</h4>
+          <p>From App Store or Goggle Play</p>
+          <div class="row">
+              <img src="app (1).jpg" alt="">
+              <img src="play.jpg" alt="">
+          </div>
+          <p>Secured Payment Gateway</p>
+          <img src="pay.png" alt="">
+
+      </div>
+      <div class="copyright">
+          <p>@ 2024 , Tech2 etc - HTML CSS Ecommerce Template</p>
+      </div>
+  </footer>
+
+    <script>
+        // videocall 
+let localStream;
+        let remoteStream;
+        let pc1;
+        let pc2;
+
+        const startButton = document.getElementById('startCall');
+        const endButton = document.getElementById('endCall');
+
+        startButton.addEventListener('click', startCall);
+        endButton.addEventListener('click', endCall);
+
+        async function startCall() {
+            try {
+                localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+                document.getElementById('localVideo').srcObject = localStream;
+
+                const configuration = {};
+                pc1 = new RTCPeerConnection(configuration);
+                pc2 = new RTCPeerConnection(configuration);
+
+                pc1.onicecandidate = e => pc2.addIceCandidate(e.candidate);
+                pc2.onicecandidate = e => pc1.addIceCandidate(e.candidate);
+
+                pc2.ontrack = e => {
+                    remoteStream = e.streams[0];
+                    document.getElementById('remoteVideo').srcObject = remoteStream;
+                };
+
+                localStream.getTracks().forEach(track => pc1.addTrack(track, localStream));
+
+                const offer = await pc1.createOffer();
+                await pc1.setLocalDescription(offer);
+                await pc2.setRemoteDescription(offer);
+
+                const answer = await pc2.createAnswer();
+                await pc2.setLocalDescription(answer);
+                await pc1.setRemoteDescription(answer);
+            } catch (error) {
+                console.error('Error starting call:', error);
+            }
+        }
+
+        function endCall() {
+            pc1.close();
+            pc2.close();
+            localStream.getTracks().forEach(track => track.stop());
+            remoteStream.getTracks().forEach(track => track.stop());
+            document.getElementById('localVideo').srcObject = null;
+            document.getElementById('remoteVideo').srcObject = null;
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
